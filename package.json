@@ -1,0 +1,27 @@
+{
+  "name": "PublBoxTestTask",
+  "version": "0.0.1",
+  "description": "uiautotests",
+  "main": "index.js",
+  "scripts": {
+    "test-start": "wdio wdio.conf.js --suite openNews"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OlegSimfi/PublBoxTestTask.git"
+  },
+  "author": "Test",
+  "license": "",
+  "homepage": "http://localhost:5000/",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "node-notifier": "^5.2.1",
+    "selenium-standalone": "^6.17.0",
+    "wdio-junit-reporter": "^0.4.4",
+    "wdio-mocha-framework": "^0.5.13",
+    "wdio-selenium-standalone-service": "0.0.12",
+    "wdio-spec-reporter": "^0.1.5",
+    "webdriverio": "^4.14.0"
+  }
+}
