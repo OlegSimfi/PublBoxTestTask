@@ -4,7 +4,7 @@
   "description": "uiautotests",
   "main": "index.js",
   "scripts": {
-    "test-start": "wdio wdio.conf.js --suite openNews"
+    "test-start": "wdio wdio.conf.js --suite addRssFeed"
   },
   "repository": {
     "type": "git",

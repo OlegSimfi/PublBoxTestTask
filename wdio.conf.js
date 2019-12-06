@@ -1,6 +1,6 @@
 const notifier = require('node-notifier');
 
-const baseUrl = 'http://obkom.net.ua/';
+const baseUrl = 'https://app.publbox.com/';
 
 const timeout = process.env.DEBUG ? 99999999 : 180000;
 
@@ -17,8 +17,8 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     suites: {
-        openNews: [
-            './autotests/tests/openNews.js',
+        addRssFeed: [
+            './autotests/tests/addRssFeed.js',
         ],
     },
     specs: [
@@ -54,10 +54,10 @@ exports.config = {
         browserName: 'chrome',
         screenResolution: "1920x1080",
         chromeOptions: {
-            prefs: {
-                "download.default_directory": ""
+            prefs: {"download.default_directory": ""
             },
-            args: ['window-size=1920,1080']
+            args: ['window-size=1920,1080',
+                '--host-resolver-rules=MAP top-fwz1.mail.ru 127.0.0.1']
         }
     }],
     //
@@ -69,7 +69,7 @@ exports.config = {
     // By default WebdriverIO commands are executed in a synchronous way using
     // the wdio-sync package. If you still want to run your tests in an async way
     // e.g. using promises you can set the sync option to false.
-    sync: false,
+    sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
     logLevel: 'silent',
