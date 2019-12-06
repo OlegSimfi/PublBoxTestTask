@@ -5,14 +5,7 @@ class SignUpPage {
     get submitButton () {return $ ('.semantic-button.template--primary')}
 
 
-    async assertSignUpPAgeIsOpened() {
-        await this.pageTitle.waitForExist();
-        await this.emailInput.waitForExist();
-        await this.passwordInput.waitForExist();
-        await this.submitButton.waitForExist();
-    }
-
-    login(email, password) {
+     login(email, password) {
         if (email) {
             this.emailInput.setValue(email);
         }
