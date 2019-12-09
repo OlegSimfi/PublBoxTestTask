@@ -1,5 +1,4 @@
 class MainPage {
-   get pageHeader() {return $('.header')}
    get sideBarMenu() {return $('div[class^="SideBarMenu"]')}
    get addRssLink()  {return $('[href="/main/feed"]')}
    get feedsHeader() {return $('div[class^="FeedsHeader"]')}
@@ -11,8 +10,6 @@ class MainPage {
    get addedItemOnPopUp()  {return $('span[class^="FeedItem__ItemTitle"]')}
    get popUpCloseButton()  {return $('button[class^="BigCloseButton"]')}
    get feedsPostItemHeader()  {return $('div[class^="FeedPostsList"]')}
-   get feedsPostItems() {return $('div[class^="FeedPostItem"]')}
-
 
    addLink(link) {
       if (link) {
@@ -64,6 +61,7 @@ class MainPage {
       this.rssIFrame.waitForExist();
       const rssFrame = this.rssIFrame.value;
       browser.frame(rssFrame);
+      this.feedsHeader.waitForExist();
       let currentUrl = browser.getUrl();
       expect(currentUrl).to.contain('main/feed');
    }

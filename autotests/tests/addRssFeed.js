@@ -37,6 +37,6 @@ describe("Add RSS Feed", function () {
     });
 
     it("Assert added feeds ", function () {
-        MainPage.assertRssItems("www.bbc.co.uk");
+        MainPage.assertRssItems("BBC News","www.bbc.co.uk");
     });
 });
