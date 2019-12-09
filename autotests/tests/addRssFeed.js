@@ -36,7 +36,8 @@ describe("Add RSS Feed", function () {
         MainPage.assertAddedFeedPopUp('BBC News');
     });
 
-    it("Assert added feeds ", function () {
+    it("Assert added feeds", function () {
         MainPage.assertRssItems("BBC News","bbc.co.uk");
     });
 });
+

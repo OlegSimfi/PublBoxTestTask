@@ -27,3 +27,4 @@ class SignUpPage {
 }
 
 module.exports = new SignUpPage();
+
