@@ -17,7 +17,13 @@ class SignUpPage {
         this.submitButton.submitForm();
     }
 
-
+    assertSignUpPageIsOpened(){
+        this.pageTitle.waitForExist();
+        const isOpened = this.pageTitle.isExisting();
+        expect(isOpened, "header exists").to.be.true;
+        let currentUrl = browser.getUrl();
+        expect(currentUrl).to.contain('authorization/signin');
+    }
 }
 
 module.exports = new SignUpPage();

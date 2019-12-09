@@ -8,11 +8,7 @@ describe("Add RSS Feed", function () {
     });
 
     it("Assert Sign up page is opened", function () {
-        SignUpPage.pageTitle.waitForExist();
-        const isOpened = SignUpPage.pageTitle.isExisting();
-        expect(isOpened, "header exists").to.be.true;
-        let currentUrl = browser.getUrl();
-        expect(currentUrl).to.contain('authorization/signin');
+        SignUpPage.assertSignUpPageIsOpened();
     });
 
     it("User sign up login", function () {
@@ -20,20 +16,27 @@ describe("Add RSS Feed", function () {
     });
 
     it("Assert Main page is opened", function () {
-        MainPage.sideBarMenu.waitForExist();
-        let currentUrl = browser.getUrl();
-        expect(currentUrl).to.contain('/main/create-post');
+        MainPage.assertMAinPageIsOpened()
     });
 
+
     it("Open Add RSS feed", function () {
-        MainPage.addRssLink.click();
+        MainPage.clickAddRssLink();
     });
 
     it("Assert Add RSS feed is opened", function () {
-        browser.debug();
-        MainPage.addFeedButton.waitForExist();
-        let currentUrl = browser.getUrl();
-        expect(currentUrl).to.contain('main/feed');
+        MainPage.assertAddFeedIsOpened();
     });
 
+    it("User add RSS feed", function () {
+        MainPage.addRssFeed('http://feeds.bbci.co.uk/news/world/rss.xml');
+    });
+
+    it("Assert RSS feed on the pop-up", function () {
+        MainPage.assertAddedFeedPopUp('BBC News');
+    });
+
+    it("Assert added feeds ", function () {
+        MainPage.assertRssItems("www.bbc.co.uk");
+    });
 });
