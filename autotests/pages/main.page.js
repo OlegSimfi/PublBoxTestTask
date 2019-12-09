@@ -10,6 +10,7 @@ class MainPage {
    get addedItemOnPopUp()  {return $('span[class^="FeedItem__ItemTitle"]')}
    get popUpCloseButton()  {return $('button[class^="BigCloseButton"]')}
    get feedsPostItemHeader()  {return $('div[class^="FeedPostsList"]')}
+   get feedPostList()  {return $('div[class^="FeedPostsList__ItemsWrapper"]')}
 
    addLink(link) {
       if (link) {
@@ -26,8 +27,14 @@ class MainPage {
    this.feedsPostItemHeader.waitForExist();
    let addedFeedsHeader = this.feedsPostItemHeader.getText();
    expect(addedFeedsHeader).to.contain(header);
-   let itemArray = $$('div[class^="FeedPostItem"]');
-   itemArray.forEach(element => element.getText().includes(link))
+   this.feedPostList.waitForExist();
+   let itemArray = $$('div[class^="FeedPostItem__FeedLink"]');
+      itemArray.forEach((element, index) => {
+      const text = element.getText();
+      if (!text.includes(link)) {
+         throw(new Error(`Element with index ${index} does not contain the link`));
+      }
+   });
    }
 
    assertMAinPageIsOpened() {
